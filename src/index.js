@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import Latex from 'react-latex';
 
+import generator from './generator';
 
 const Equation = () => (
     <Latex>$x + 2 = 9$</Latex>
