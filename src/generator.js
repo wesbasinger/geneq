@@ -27,6 +27,8 @@ const generator = (level=0) => {
                 result.str = `${result.firstConstant}x = ${result.firstConstant*result.unknown}`
                 return result;
             }
+        default:
+            return result;
     }
 }
 

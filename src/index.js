@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
-import Latex from 'react-latex';
 
-import generator from './generator';
+import reducers from './reducers';
+import { generateEquation } from './actions';
 
-const Equation = () => (
-    <Latex>$x + 2 = 9$</Latex>
-)
+import Equation from './containers/Equation';
+
+const store = createStore(reducers);
+
+// bootstrap app with initial equation
+store.dispatch(generateEquation(0));
+
 
 const App = () => (
     <div>
@@ -16,4 +22,4 @@ const App = () => (
     </div>
 )
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
