@@ -1,4 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-ReactDOM.render(<div>New app coming soon!</div>, document.getElementById('root'));
+import Latex from 'react-latex';
+
+
+const Equation = () => (
+    <Latex>$x + 2 = 9$</Latex>
+)
+
+const App = () => (
+    <div>
+        <h1>GenEq</h1>
+        <Equation />
+    </div>
+)
+
+ReactDOM.render(<App />, document.getElementById('root'));
