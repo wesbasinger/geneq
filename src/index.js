@@ -8,6 +8,7 @@ import reducers from './reducers';
 import { generateEquation } from './actions';
 
 import Equation from './containers/Equation';
+import Score from './containers/Score';
 
 const store = createStore(reducers);
 
@@ -19,6 +20,7 @@ const App = () => (
     <div>
         <h1>GenEq</h1>
         <Equation />
+        <Score />
     </div>
 )
 
