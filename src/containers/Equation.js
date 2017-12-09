@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { generateEquation } from '../actions';
+
 import Latex from 'react-latex';
 
-const Equation = ({equations}) => {
+const Equation = ({dispatch, equations}) => {
     
     const currEquation = equations.pop();
     
@@ -18,10 +20,12 @@ const Equation = ({equations}) => {
                         event.preventDefault();
                         const userInput = (event.target[0].value);
                         event.target[0].value = "";
-                        if(parseInt(userInput) === currEquation.unknown) {
+                        if (parseInt(userInput) === currEquation.unknown) {
                             alert("Got it!");
+                            dispatch(generateEquation(0));
                         } else {
-                            alert("Nope...")
+                            alert("Nope...");
+                            dispatch(generateEquation(0));
                         }
                     }
                 }>
