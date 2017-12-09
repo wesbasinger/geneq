@@ -3,10 +3,19 @@ import { connect } from 'react-redux';
 
 import Latex from 'react-latex';
 
-const Equation = ({equations}) => (
+const Equation = ({equations}) => {
+    
+    const currEquation = equations.pop();
+    
+    const equationString = `$${currEquation.str}$`;
+    
+    return (
+        <div>
+            <Latex>{equationString}</Latex>
+        </div>
+    )
 
-    <Latex>$x + 2 = 9$</Latex>
-)
+}
 
 const mapStateToProps = state => {
     return {
