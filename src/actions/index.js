@@ -7,3 +7,10 @@ export const generateEquation =(level=0) => {
     }
 }
 
+export const incrementScore = () => {
+    console.log("Got called");
+    return {
+        type: 'INCREMENT_SCORE'
+    }
+}
+

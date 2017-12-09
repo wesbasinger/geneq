@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { generateEquation } from '../actions';
+import { generateEquation, incrementScore } from '../actions';
 
 import Latex from 'react-latex';
 
@@ -20,8 +20,9 @@ const Equation = ({dispatch, equations}) => {
                         event.preventDefault();
                         const userInput = (event.target[0].value);
                         event.target[0].value = "";
-                        if (parseInt(userInput) === currEquation.unknown) {
+                        if (parseInt(userInput, 10) === currEquation.unknown) {
                             alert("Got it!");
+                            dispatch(incrementScore())
                             dispatch(generateEquation(0));
                         } else {
                             alert("Nope...");
@@ -41,7 +42,8 @@ const Equation = ({dispatch, equations}) => {
 
 const mapStateToProps = state => {
     return {
-        equations: state.equations
+        equations: state.equations,
+        score: state.score
     }
 }
 
