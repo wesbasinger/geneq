@@ -12,6 +12,24 @@ const Equation = ({equations}) => {
     return (
         <div>
             <Latex>{equationString}</Latex>
+            <div>
+                <form onSubmit={
+                    (event) => {
+                        event.preventDefault();
+                        const userInput = (event.target[0].value);
+                        event.target[0].value = "";
+                        if(parseInt(userInput) === currEquation.unknown) {
+                            alert("Got it!");
+                        } else {
+                            alert("Nope...")
+                        }
+                    }
+                }>
+                    <label>Answer: </label>
+                    <input />
+                    <button type="submit">Check Answer</button>
+                </form>
+            </div>
         </div>
     )
 
